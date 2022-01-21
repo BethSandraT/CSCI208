@@ -28,6 +28,7 @@ int main() {
     }
   } while (filename.is_open());
   cout << getLines(filename) << " " << getWords(filename) << " " << getChars(filename) << endl;
+  filename.close();
   return 0;
 }
 
@@ -81,6 +82,17 @@ int getWords(string filename) {
 }
 
 int getChars(string filename) {
+  char chr;
+  int characters = 0;
   filename.clear();
   filename.seekg(0);
+  if (filename.is_open()) {
+    while (!filename.eof()) { // If not at the end of file,
+      filename.get(chr);      // get the next character from the file
+      if (!isspace(chr)) {    // and if it's not whitespace,
+        ++characters;         // add one to the count of characters
+      }
+    }
+  }
+  return characters;
 }
