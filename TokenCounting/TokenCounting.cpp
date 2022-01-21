@@ -3,6 +3,8 @@
 #include <fstream>
 #include <string>
 
+using namespace std;
+
 int getLines(string filename);  // Function which inputs a file name and outputs
                                 // the no. of lines inside of it
 int getWords(string filename);  // Function which inputs a file name and outputs
