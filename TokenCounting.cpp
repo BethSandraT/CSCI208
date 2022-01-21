@@ -43,18 +43,41 @@ int getLines(string filename) {
       return 0;
     }
 
-    do {
+    do {                  // The loop iterates once, then if the end of the file
+                          // is NOT reached, the loop iterates again
       filename.get(chr);
-      if (chr == '\n') {
-        ++lines;
+      if (chr == '\n') {  // Each newline signifies a new line,
+        ++lines;          // which adds to the line count
       }
     } while (!filename.eof());
   }
+  return lines;
 }
 
 int getWords(string filename) {
+  char chr;
+  int words = 0;
+  bool prevWasSpace = 0;
   filename.clear();
   filename.seekg(0);
+  if (filename.is_open()) {
+    if (filename.eof()) { // If the file is empty, there are no words
+      return 0;
+    }
+
+    do {
+      filename.get(chr);
+      if (!isspace(chr)) {  // If the char is not whitespace,
+        if (prevWasSpace) { // and the previous char was,
+          ++words;          // that means the char begins another word
+        }
+      }
+      else {
+        prevWasSpace = 1;
+      }
+    } while (!filename.eof());
+  }
+  return words;
 }
 
 int getChars(string filename) {
