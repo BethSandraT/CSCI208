@@ -60,7 +60,7 @@ int getLines(ifstream& fs) {
 int getWords(ifstream& fs) {
   char chr;
   int words = 0;
-  bool prevWasSpace = 0;
+  bool prevWasSpace = 1;
   fs.clear();
   fs.seekg(0);
   if (fs.is_open()) {
