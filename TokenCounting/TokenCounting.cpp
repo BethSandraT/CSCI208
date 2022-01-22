@@ -36,7 +36,7 @@ int main() {
 
 int getLines(ifstream& fs) {
   char chr;
-  int lines = 0;
+  int lines = 1;
   fs.clear();   // Redundant for this specific use, but I wanted a
                       // generalized option in case the order was ever switched
   fs.seekg(0);  // Redundant for this specific use, but I wanted a
