@@ -92,8 +92,7 @@ int getChars(ifstream& fs) {
   if (fs.is_open()) {
     while (!fs.eof()) { // If not at the end of file,
       fs.get(chr);      // get the next character from the file
-      if (!isspace(chr)) {    // and if it's not whitespace,
-        ++characters;         // add one to the count of characters
+      ++characters;     // and add one to the count of characters
       }
     }
   }
