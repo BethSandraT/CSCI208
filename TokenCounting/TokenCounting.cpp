@@ -74,6 +74,7 @@ int getWords(ifstream& fs) {
         if (prevWasSpace) { // and the previous char was,
           ++words;          // that means the char begins another word
         }
+        prevWasSpace = 0;
       }
       else {
         prevWasSpace = 1;
