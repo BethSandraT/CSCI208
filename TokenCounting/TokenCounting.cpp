@@ -93,7 +93,6 @@ int getChars(ifstream& fs) {
     while (!fs.eof()) { // If not at the end of file,
       fs.get(chr);      // get the next character from the file
       ++characters;     // and add one to the count of characters
-      }
     }
   }
   return characters;
